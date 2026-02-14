@@ -1,0 +1,9 @@
+{
+  "name": "Verum Omnis",
+  "description": "A constitutional forensic instrument for immutable evidence collection and AI-driven analysis.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

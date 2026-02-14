@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verum Omnis</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              verum: {
+                black: '#0a0a0a',
+                dark: '#111111',
+                gray: '#1a1a1a',
+                slate: '#2d2d2d',
+                green: '#27ae60',
+                red: '#c0392b',
+                gold: '#d4af37',
+              }
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.5s ease-out',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #e5e5e5;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #111; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #444; 
+      }
+      .watermark {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+        font-size: 4rem;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.03);
+        pointer-events: none;
+        white-space: nowrap;
+        z-index: 0;
+      }
+
+      /* PRINT STYLES - FIXED FOR PDF GENERATION */
+      @media print {
+        @page {
+          margin: 1cm;
+          size: auto;
+        }
+
+        body * {
+          visibility: hidden;
+        }
+
+        html, body, #root {
+          height: auto !important;
+          overflow: visible !important;
+          background-color: white !important;
+          color: black !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+
+        #report-container, #report-container * {
+          visibility: visible;
+        }
+
+        #report-container {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          background-color: white !important;
+          color: black !important;
+          box-shadow: none !important;
+          border: none !important;
+          display: block !important;
+        }
+        
+        pre {
+          white-space: pre-wrap !important;
+          word-wrap: break-word !important;
+          font-family: 'JetBrains Mono', monospace !important;
+          font-size: 10px !important;
+        }
+
+        .watermark, header, .no-print, button {
+          display: none !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.41.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "qrcode": "https://esm.sh/qrcode@1.5.3",
+    "jsqr": "https://esm.sh/jsqr@1.4.0",
+    "@capacitor/cli": "https://esm.sh/@capacitor/cli@^8.1.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <div class="watermark">VERUM OMNIS FORENSIC SEAL</div>
+  </body>
+</html>
